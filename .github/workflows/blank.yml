@@ -1,0 +1,12 @@
+name: My-Robot-Guard
+on: [push] # Run every time I save new code
+
+jobs:
+  check-my-lego:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Look at my code
+        uses: actions/checkout@v4
+
+      - name: Say Hello
+        run: echo "I am checking your code now! Everything looks great!"
