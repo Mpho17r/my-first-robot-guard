@@ -1,0 +1,22 @@
+name: My-Robot-Guard-System
+on: [push] # The Robot wakes up every time you save code
+
+jobs:
+  check-and-secure: # Mission 1: The CI (Integration)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open the Box
+        uses: actions/checkout@v4
+
+      - name: Clean the Bricks (CI)
+        run: echo "I am checking for wobbly or dirty bricks!"
+
+      - name: Scan for Bad Guys (Security)
+        run: echo "I am checking for stolen keys or dangerous pieces!"
+
+  deploy-to-playground: # Mission 3: The CD (Deployment)
+    needs: check-and-secure # Only happens if the first part is GREEN
+    runs-on: ubuntu-latest
+    steps:
+      - name: Put on Display
+        run: echo "The tower is safe! Putting it in the playground now!"
